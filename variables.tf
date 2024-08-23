@@ -1,0 +1,91 @@
+variable "mds_admin_password" {}
+variable "mds_admin_username" {
+  default = "mysql"
+}
+variable "mds_availability_domain" {}
+variable "mds_compartment_ocid" {}
+variable "heatwave_cluster_enabled" {
+  default = false
+}
+variable "mds_shape" {
+  default = "MySQL.Free" # "MySQL.Free, MySQL.2, MySQL.4, MySQL.8, MySQL.16, MySQL.32, MySQL.64, MySQL.128 , MySQL.256
+}
+variable "heatwave_shape" {
+  default = "HeatWave.Free" # HeatWave.Free, HeatWave.32GB, HeatWave.512GB
+}
+variable "heatwave_cluster_size" {
+  default = 1
+}
+variable "use_existing_vcn" {
+  default = false
+}
+variable "use_public_subnet" {
+  default = false
+}
+variable "subnet_id" {
+  default = ""
+}
+variable "mds_backup_policy_is_enabled" {
+  default = false
+}
+variable "mds_backup_policy_retention_in_days" {
+  default = 31
+}
+variable "mds_backup_policy_window_start_time" {
+  default = "MONDAY 23:00"
+}
+variable "mds_data_storage_size_in_gb" {
+  default = 1024 # Must be an integer between 50 and 131,072.
+}
+variable "mds_defined_tags" {
+  default = {}
+  
+}
+variable "mds_description" {
+  default = "FoggyKitchen MDS/Heatwave instance"
+}
+variable "mds_display_name" {
+  default = "FoggyKitchen MDS/Heatwave"
+  
+}
+variable "mds_fault_domain" {
+  default = ""
+}
+variable "mds_freeform_tags" {
+  default = {}
+}
+variable "mds_hostname_label" {
+  default = "fkmds"
+}
+variable "mds_is_highly_available" {
+  default = false
+}
+variable "mds_maintenance_window_start_time" {
+  default = "MONDAY 23:59"
+}
+
+variable "mds_port" {
+  default = 3306
+}
+variable "mds_port_x" {
+  default = 33060
+}
+
+variable "mds_vcn_cidr_block" {
+  default = "10.0.0.0/16"  
+}
+variable "mds_vcn_dns_label" {
+  default = "mdsvcn" 
+}
+
+variable "mds_vcn_display_name" {
+  default = "FoggyKitchenMDSVCN"
+}
+
+variable "mds_subnet_cidr_block" {
+  default = "10.0.1.0/24" 
+}
+
+variable "mds_subnet_display_name" {
+  default = "FoggyKitchenMDSSubnet"
+}

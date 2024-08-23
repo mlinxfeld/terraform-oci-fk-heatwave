@@ -1,0 +1,6 @@
+tenancy_ocid            = <tenancy_ocid>"
+region                  = "<region>"
+mds_availability_domain = "<ad_name>"
+mds_compartment_ocid    = "<compartment_ocid>"
+mds_admin_password      = "<admin_password>"
+
