@@ -8,11 +8,11 @@ output "mds_database" {
 }
 
 output "wordpress_home_URL" {
-  value = "http://${module.oci-arch-wordpress.public_ip[0]}/"
+  value = "http://${module.oci-fk-wordpress.public_ip[0]}/"
 }
 
 output "wordpress_wp-admin_URL" {
-  value = "http://${module.oci-arch-wordpress.public_ip[0]}/wp-admin/"
+  value = "http://${module.oci-fk-wordpress.public_ip[0]}/wp-admin/"
 }
 
 output "generated_ssh_private_key" {

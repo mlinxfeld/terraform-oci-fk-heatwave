@@ -85,11 +85,6 @@ variable "wp_schema" {
   default     = "wp"
 }
 
-variable "wp_version" {
-  description = "WordPress version"
-  default = "5.9"
-}
-
 variable "wp_auto_update" {
   default     = true
 }
@@ -143,4 +138,8 @@ variable "flex_lb_min_shape" {
 
 variable "flex_lb_max_shape" {
   default = "100"
+}
+
+variable "wp_version" {
+  default = "6.6.1"
 }

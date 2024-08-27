@@ -73,11 +73,6 @@ variable "wp_schema" {
   default     = "wp"
 }
 
-variable "wp_version" {
-  description = "WordPress version"
-  default = "5.9"
-}
-
 variable "wp_auto_update" {
   default     = true
 }
@@ -89,7 +84,7 @@ variable "wp_plugins" {
 
 variable "wp_themes" {
   description = "A list of WordPress themes to install."
-  default     = "lodestar, twentysixteen"
+  default     = "twentysixteen, lodestar"
 }
 
 variable "wp_site_url" {
@@ -115,4 +110,8 @@ variable "wp_site_admin_pass" {
 variable "wp_site_admin_email" {
   description = "WordPress Site Admin Email"
   default     = "admin@example.com"
+}
+
+variable "wp_version" {
+  default = "6.6.1"
 }

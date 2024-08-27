@@ -14,6 +14,7 @@ module "oci-fk-wordpress" {
   wp_subnet_id              = oci_core_subnet.FoggyKitchenPublicSubnet.id
   admin_username            = var.mds_admin_username
   admin_password            = var.mds_admin_password
+  wp_version                = var.wp_version
   wp_schema                 = var.wp_schema
   wp_name                   = var.wp_name
   wp_password               = var.mds_wp_password
