@@ -1,8 +1,12 @@
-variable "mds_admin_password" {}
+variable "mds_admin_password" {
+  default = ""
+}
 variable "mds_admin_username" {
   default = "mysql"
 }
-variable "mds_availability_domain" {}
+variable "mds_availability_domain" {
+  default = ""
+}
 variable "mds_compartment_ocid" {}
 variable "heatwave_cluster_enabled" {
   default = false
@@ -88,4 +92,44 @@ variable "mds_subnet_cidr_block" {
 
 variable "mds_subnet_display_name" {
   default = "FoggyKitchenMDSSubnet"
+}
+
+variable "mds_manual_backup_enabled" {
+  default = false
+}
+
+variable "mds_backup_backup_type" {
+  default = "FULL" # FULL or INCREMENTAL
+}
+
+variable "mds_backup_description" {
+  default = "FoggyKitchen MDS Manual Backup"
+}
+
+variable "mds_backup_display_name" {
+  default = "FoggyKitchenMDSManualBackup" 
+}
+
+variable "mds_backup_retention_in_days" {
+  default = 31
+}
+
+variable "mds_cross_region_manual_backup_enabled" {
+  default = false
+}
+
+variable "mds_cross_region_backup_region" {
+  default = ""
+}
+
+variable "mds_cross_region_manual_backup_ocid" {
+  default = ""
+}
+
+variable "mds_cross_region_backup_description" {
+  default = "FoggyKitchen MDS Cross-Region Backup"
+}
+
+variable "mds_cross_region_backup_display_name" {
+  default = "FoggyKitchenMDSCrossRegionBackup" 
 }

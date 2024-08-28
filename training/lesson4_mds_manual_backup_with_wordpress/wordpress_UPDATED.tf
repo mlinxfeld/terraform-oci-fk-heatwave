@@ -2,20 +2,16 @@ module "oci-fk-wordpress" {
   source                    = "github.com/mlinxfeld/terraform-oci-fk-wordpress"
   tenancy_ocid              = var.tenancy_ocid
   vcn_id                    = oci_core_vcn.FoggyKitchenVCN.id
-  numberOfNodes             = 2
+  numberOfNodes             = 1
   availability_domain       = var.mds_availability_domain == "" ? lookup(data.oci_identity_availability_domains.ADs.availability_domains[0], "name") : var.mds_availability_domain
   compartment_ocid          = var.mds_compartment_ocid
   image_id                  = lookup(data.oci_core_images.OSImage.images[0], "id")
   shape                     = var.wordpress_compute_shape
   flex_shape_ocpus          = var.wordpress_compute_flex_shape_ocpus
   flex_shape_memory         = var.wordpress_compute_flex_shape_memory
-  label_prefix              = "FoggyKitchen"
-  display_name              = "WordPress"
+  ssh_authorized_keys       = tls_private_key.public_private_key_pair.public_key_openssh
   mds_ip                    = module.oci-fk-mds.mds_database.mds_ip_address
-  wp_subnet_id              = oci_core_subnet.FoggyKitchenPrivateSubnet.id
-  lb_subnet_id              = oci_core_subnet.FoggyKitchenPublicSubnet.id 
-  bastion_subnet_id         = oci_core_subnet.FoggyKitchenPublicSubnet.id 
-  fss_subnet_id             = oci_core_subnet.FoggyKitchenPrivateSubnet.id 
+  wp_subnet_id              = oci_core_subnet.FoggyKitchenPublicSubnet.id
   admin_username            = var.mds_admin_username
   admin_password            = var.mds_admin_password
   wp_version                = var.wp_version
@@ -28,13 +24,6 @@ module "oci-fk-wordpress" {
   wp_site_admin_user        = var.wp_site_admin_user
   wp_site_admin_pass        = var.wp_site_admin_pass
   wp_site_admin_email       = var.wp_site_admin_email
-  lb_shape                  = var.lb_shape 
-  flex_lb_min_shape         = var.flex_lb_min_shape 
-  flex_lb_max_shape         = var.flex_lb_max_shape
-  use_bastion_service       = false
-  bastion_image_id          = lookup(data.oci_core_images.OSImage.images[0], "id")
-  bastion_shape             = var.bastion_shape
-  bastion_flex_shape_ocpus  = var.bastion_flex_shape_ocpus
-  bastion_flex_shape_memory = var.bastion_flex_shape_memory
-  bastion_service_region    = var.region 
+  label_prefix              = "FoggyKitchen"
+  display_name              = "WordPress"
 }

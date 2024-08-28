@@ -1,4 +1,5 @@
 module "oci-fk-mds" {
+ 
   #source                                = "github.com/mlinxfeld/terraform-oci-fk-heatwave"
   source                                = "../../"
   mds_admin_password                    = var.mds_admin_password
@@ -10,5 +11,6 @@ module "oci-fk-mds" {
   use_existing_vcn                      = true
   subnet_id                             = oci_core_subnet.FoggyKitchenPrivateSubnet.id
   mds_is_highly_available               = var.mds_is_highly_available
+  mds_manual_backup_enabled             = true
 }
 

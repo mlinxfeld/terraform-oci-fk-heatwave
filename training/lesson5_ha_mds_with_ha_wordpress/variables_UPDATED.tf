@@ -7,6 +7,10 @@ variable "mds_compartment_ocid" {}
 variable "mds_admin_password" {}
 variable "mds_availability_domain" {}
 
+variable "mds_manual_backup_enabled" {
+  default = true
+}
+
 variable "mds_admin_username" {
   default = "mysql"
 }
