@@ -5,3 +5,7 @@ mds_compartment_ocid    = "<compartment_ocid>"
 mds_admin_password      = "<admin_password>" # MySQL Heatwave Admin password (mysql user)
 mds_wp_password         = "<wp_user_password>" # MySQL Heatware WP password (wp user)
 wp_site_admin_pass      = "wp_admin_password>" # WordPress Console Admin User
+
+mds_manual_backup_enabled              = false
+mds_cross_region_manual_backup_enabled = false
+mds_cross_region_clone_enabled         = false

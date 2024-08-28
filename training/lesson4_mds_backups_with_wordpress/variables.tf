@@ -6,6 +6,7 @@ variable "region" {}
 variable "mds_compartment_ocid" {}
 variable "mds_admin_password" {}
 variable "mds_availability_domain" {}
+variable "mds_availability_domain2" {}
 
 variable "mds_admin_username" {
   default = "mysql"
@@ -123,5 +124,9 @@ variable "mds_manual_backup_enabled" {
 }
 
 variable "mds_cross_region_manual_backup_enabled" {
+  default = false
+}
+
+variable "mds_cross_region_clone_enabled" {
   default = false
 }

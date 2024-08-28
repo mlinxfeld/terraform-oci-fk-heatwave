@@ -21,6 +21,18 @@ resource "oci_mysql_mysql_db_system" "FoggyKitchenMDS" {
       is_enabled = false
     }
   }
+
+  dynamic "source" {
+    for_each = var.mds_defined_source_enabled && var.mds_defined_source_type == "BACKUP" ? [1] : []
+    content {
+      source_type    = var.mds_defined_source_type
+      backup_id      = var.mds_defined_source_type == "BACKUP" ? var.mds_defined_source_backup_ocid : null
+      db_system_id   = var.mds_defined_source_type == "PITR" ? var.mds_defined_source_db_system_ocid : null
+      recovery_point = var.mds_defined_source_type == "PITR" ? var.mds_defined_source_db_system_recovery_point : null
+      source_url     = var.mds_defined_source_type == "IMPORTURL" ? var.mds_defined_source_par_url : null
+    }
+  }
+
   data_storage_size_in_gb = (var.mds_shape == "MySQL.Free") ? 50 : var.mds_data_storage_size_in_gb
   defined_tags            = var.mds_defined_tags
   description             = var.mds_description

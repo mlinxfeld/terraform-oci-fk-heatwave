@@ -133,3 +133,27 @@ variable "mds_cross_region_backup_description" {
 variable "mds_cross_region_backup_display_name" {
   default = "FoggyKitchenMDSCrossRegionBackup" 
 }
+
+variable "mds_defined_source_enabled" {
+  default = false
+}
+
+variable "mds_defined_source_type" {
+  default = "" # BACKUP vs PITR vs IMPORTURL 
+}
+
+variable "mds_defined_source_backup_ocid" {
+  default = ""
+}
+
+variable "mds_defined_source_db_system_ocid" {
+  default = ""
+}
+
+variable "mds_defined_source_db_system_recovery_point" {
+  default = ""
+}
+
+variable "mds_defined_source_par_url" {
+  default = "" 
+}
