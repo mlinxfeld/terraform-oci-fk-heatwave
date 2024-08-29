@@ -15,8 +15,16 @@ output "wordpress_wp-admin_URL" {
   value = "http://${module.oci-fk-wordpress.public_ip[0]}/wp-admin/"
 }
 
+output "wordpress2_home_URL" {
+  value = var.mds_cross_region_clone_enabled ? "http://${module.oci-fk-wordpress2[0].public_ip[0]}/" : ""
+}
+
+output "wordpress2_wp-admin_URL" {
+  value = var.mds_cross_region_clone_enabled ? "http://${module.oci-fk-wordpress2[0].public_ip[0]}/wp-admin/" : ""
+}
+
 output "generated_ssh_private_key" {
-  value     = module.oci-fk-wordpress.generated_ssh_private_key
+  value     = tls_private_key.public_private_key_pair.private_key_pem
   sensitive = true
 }
 

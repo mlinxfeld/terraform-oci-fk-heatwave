@@ -28,6 +28,7 @@ module "oci-fk-x-region-mds-backup" {
   mds_cross_region_manual_backup_ocid    = module.oci-fk-mds.mds_backup.mds_backup_id
   mds_cross_region_backup_description    = "FoggyKitchen MDS Cross-Region Copy of Manual Backup"
   mds_cross_region_backup_display_name   = "FoggyKitchenMDSXRegionBackup" 
+  use_existing_vcn                       = true
 }
 
 module "oci-fk-mds-clone-from-x-region-backup" { 
@@ -46,8 +47,6 @@ module "oci-fk-mds-clone-from-x-region-backup" {
   mds_shape                             = "MySQL.2"
   mds_display_name                      = "FoggyKitchenMDSXRegionClone"
   mds_description                       = "FoggyKitchen MySQL/Heatwave Database System (X-Region Clone)"
-  use_existing_vcn                      = false
-  use_public_subnet                     = true
-  mds_vcn_cidr_block                    = "172.16.0.0/24"
-  mds_subnet_cidr_block                 = "172.16.0.128/25"
+  use_existing_vcn                      = true
+  subnet_id                             = oci_core_subnet.FoggyKitchenPrivateSubnet2.id
 }
