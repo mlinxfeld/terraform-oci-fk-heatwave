@@ -19,7 +19,5 @@ output "mds_backup" {
 output "mds_channel" {
    value = {
       mds_channel_id = var.mds_channel_enabled ? oci_mysql_channel.FoggyKitchenMDSChannel[0].id : ""
-      mds_channel_source = var.mds_channel_enabled ? oci_mysql_channel.FoggyKitchenMDSChannel[0].source : ""
-      mds_channel_target = var.mds_channel_enabled ? oci_mysql_channel.FoggyKitchenMDSChannel[0].target : ""
    }
 }
