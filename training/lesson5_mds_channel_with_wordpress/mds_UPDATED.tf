@@ -2,8 +2,7 @@ module "oci-fk-mds" {
   providers = {
     oci = oci.region1
   }
-  #source                                = "github.com/mlinxfeld/terraform-oci-fk-heatwave"
-  source                                = "../../"
+  source                                = "github.com/mlinxfeld/terraform-oci-fk-heatwave"
   mds_admin_password                    = var.mds_admin_password
   mds_availability_domain               = var.mds_availability_domain
   mds_compartment_ocid                  = var.mds_compartment_ocid
@@ -13,6 +12,8 @@ module "oci-fk-mds" {
   use_existing_vcn                      = true
   subnet_id                             = oci_core_subnet.FoggyKitchenPrivateSubnet.id
   mds_manual_backup_enabled             = var.mds_manual_backup_enabled
+  mds_custom_configuration_enabled      = true
+  mds_config_binlog_expire_logs_seconds = 10800 # 3 hours for binlog needed for successful replication via channel.
 }
 
 module "oci-fk-x-region-mds-backup" {   
@@ -20,9 +21,9 @@ module "oci-fk-x-region-mds-backup" {
   providers = {
     oci = oci.region2
   }
-  #source                                = "github.com/mlinxfeld/terraform-oci-fk-heatwave"
-  source                                 = "../../"
+  source                                = "github.com/mlinxfeld/terraform-oci-fk-heatwave"
   mds_cross_region_manual_backup_enabled = true
+  mds_manual_backup_enabled              = false
   mds_compartment_ocid                   = var.mds_compartment_ocid
   mds_cross_region_backup_region         = var.region
   mds_cross_region_manual_backup_ocid    = module.oci-fk-mds.mds_backup.mds_backup_id
@@ -36,8 +37,7 @@ module "oci-fk-mds-clone-from-x-region-backup" {
   providers = {
     oci = oci.region2
   }
-  #source                                = "github.com/mlinxfeld/terraform-oci-fk-heatwave"
-  source                                = "../../"
+  source                                = "github.com/mlinxfeld/terraform-oci-fk-heatwave"
   mds_defined_source_enabled            = true
   mds_defined_source_type               = "BACKUP"
   mds_defined_source_backup_ocid        = module.oci-fk-x-region-mds-backup[0].mds_backup.mds_cross_region_backup_id

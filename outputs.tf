@@ -12,6 +12,6 @@ output "mds_database" {
 output "mds_backup" {
    value = {
      mds_backup_id = var.mds_cross_region_manual_backup_enabled ? "" : var.mds_manual_backup_enabled ? oci_mysql_mysql_backup.FoggyKitchenMDSManualBackup[0].id : ""
-     mds_cross_region_backup_id = var.mds_cross_region_manual_backup_enabled ? oci_mysql_mysql_backup.FoggyKitchenMDSCrossRegionManualBackup[0].id : ""
+     mds_cross_region_backup_id = var.mds_cross_region_manual_backup_enabled ? oci_mysql_mysql_backup.FoggyKitchenMDSCrossRegionBackup[0].id : ""
    }
 }

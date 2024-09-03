@@ -157,3 +157,18 @@ variable "mds_defined_source_db_system_recovery_point" {
 variable "mds_defined_source_par_url" {
   default = "" 
 }
+
+variable "mds_custom_configuration_enabled" {
+  default = false
+}
+variable "mds_configuration_description" {
+  default = "FoggyKitchen MDS Custom Configuration"
+}
+
+variable "mds_configuration_display_name" {
+  default = "FoggyKitchenMDSCustomConfiguration"
+}
+
+variable "mds_config_binlog_expire_logs_seconds" {
+  default = "3600" # 60 minutes o binlogs.
+}
