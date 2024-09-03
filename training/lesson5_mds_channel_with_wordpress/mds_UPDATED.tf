@@ -50,3 +50,17 @@ module "oci-fk-mds-clone-from-x-region-backup" {
   use_existing_vcn                      = true
   subnet_id                             = oci_core_subnet.FoggyKitchenPrivateSubnet2.id
 }
+
+module "oci-fk-mds-channel" { 
+  count = var.mds_cross_region_clone_enabled ? 1 : 0    
+  source = "github.com/mlinxfeld/terraform-oci-fk-heatwave"
+  providers = {
+    oci = oci.region2
+  }
+  mds_channel_enabled                                         = true
+  mds_channel_source_mysql_database_hostname                  = module.oci-fk-mds.mds_database.mds_ip_address
+  mds_channel_source_mysql_database_replication_user_name     = "wp_repl_user"
+  mds_channel_source_mysql_database_replication_user_password = var.mds_admin_password
+  mds_channel_target_db_system_id                             = module.oci-fk-mds-clone-from-x-region-backup[0].mds_database.mds_id
+  mds_channel_target_delay_in_seconds                         = 1
+}

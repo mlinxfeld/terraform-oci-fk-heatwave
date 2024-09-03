@@ -1,5 +1,5 @@
 resource "oci_mysql_mysql_configuration" "FoggyKitchenMDSConfiguration" {
-    count = var.mds_custom_configuration_enabled && !(var.mds_shape == "MySQL.Free") ? 1 : 0
+    count = var.mds_custom_configuration_enabled && !(var.mds_shape == "MySQL.Free") && !(var.mds_channel_enabled) ? 1 : 0
     compartment_id = var.mds_compartment_ocid 
     shape_name = var.heatwave_cluster_enabled ? var.heatwave_shape : var.mds_shape
     defined_tags = var.mds_defined_tags

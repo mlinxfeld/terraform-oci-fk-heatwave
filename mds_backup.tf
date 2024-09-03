@@ -1,5 +1,5 @@
 resource "oci_mysql_mysql_backup" "FoggyKitchenMDSManualBackup" {
-    count             = var.mds_manual_backup_enabled && !(var.mds_shape == "MySQL.Free") ? 1 : 0
+    count             = var.mds_manual_backup_enabled && !(var.mds_shape == "MySQL.Free") && !(var.mds_channel_enabled) ? 1 : 0
     db_system_id      = oci_mysql_mysql_db_system.FoggyKitchenMDS[0].id
     backup_type       = var.mds_backup_backup_type
     defined_tags      = var.mds_defined_tags
@@ -10,7 +10,7 @@ resource "oci_mysql_mysql_backup" "FoggyKitchenMDSManualBackup" {
 }
 
 resource "oci_mysql_mysql_backup" "FoggyKitchenMDSCrossRegionBackup" {
-    count             = var.mds_cross_region_manual_backup_enabled ? 1 : 0
+    count             = var.mds_cross_region_manual_backup_enabled  && !(var.mds_channel_enabled) ? 1 : 0
     source_details {
         region         = var.mds_cross_region_backup_region
         backup_id      = var.mds_cross_region_manual_backup_ocid

@@ -172,3 +172,51 @@ variable "mds_configuration_display_name" {
 variable "mds_config_binlog_expire_logs_seconds" {
   default = "3600" # 60 minutes o binlogs.
 }
+
+variable "mds_channel_enabled" {
+  default = false
+}
+
+variable "mds_channel_display_name" {
+  default = "FoggyKitchenMDSChannel"
+}
+
+variable "mds_channel_source_mysql_database_hostname" {
+  default = ""
+}
+
+variable "mds_channel_source_mysql_database_replication_user_name" {
+  default = "repl_user"
+}
+
+variable "mds_channel_source_mysql_database_source_type" {
+  default = "MYSQL"
+}
+
+variable "mds_channel_source_mysql_database_ssl_mode" {
+  default = "REQUIRED" 
+}
+
+variable "mds_channel_source_mysql_database_replication_user_password" {
+  default = ""
+}
+
+variable "mds_channel_target_target_type" {
+  default = "DBSYSTEM"
+}
+
+variable "mds_channel_target_db_system_id" {
+  default = ""
+}
+
+variable "mds_channel_target_channel_name" {
+  default = "MySQLMDSChannel"
+}
+
+variable "mds_channel_target_delay_in_seconds" {
+  default = 60
+}
+
+variable "mds_channel_target_tables_without_primary_key_handling" {
+  default = "GENERATE_IMPLICIT_PRIMARY_KEY"
+}
