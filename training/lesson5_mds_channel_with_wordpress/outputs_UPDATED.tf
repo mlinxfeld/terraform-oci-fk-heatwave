@@ -28,3 +28,10 @@ output "generated_ssh_private_key" {
   sensitive = true
 }
 
+output "mds_channel" {
+  value = {
+    mds_channel_id = var.mds_cross_region_clone_enabled ? module.mds_channel.mds_channel[0].mds_channel_id : ""
+    mds_source     = var.mds_cross_region_clone_enabled ? module.mds_channel.mds_channel[0].mds_source : ""
+    mds_target     = var.mds_cross_region_clone_enabled ? module.mds_channel.mds_channel[0].mds_target : ""
+  }
+}
