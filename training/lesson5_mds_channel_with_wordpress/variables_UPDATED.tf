@@ -5,11 +5,16 @@ variable "region" {}
 #variable "fingerprint" {}
 variable "mds_compartment_ocid" {}
 variable "mds_admin_password" {}
+variable "mds_repl_password" {}
 variable "mds_availability_domain" {}
 variable "mds_availability_domain2" {}
 
 variable "mds_admin_username" {
   default = "mysql"
+}
+
+variable "mds_repl_username" {
+  default = "wp_repl_user"
 }
 
 variable "mds_vcn_cidr_block" {
