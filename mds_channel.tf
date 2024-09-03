@@ -3,7 +3,7 @@ resource "oci_mysql_channel" "FoggyKitchenMDSChannel" {
   display_name   = var.mds_channel_display_name
   
   source {
-    hostname    = var.mds_channel_source_mysql_database_ip_address
+    hostname    = var.mds_channel_source_mysql_database_hostname
     source_type = var.mds_channel_source_mysql_database_source_type
     username    = var.mds_channel_source_mysql_database_replication_user_name
     password    = var.mds_channel_source_mysql_database_replication_user_password

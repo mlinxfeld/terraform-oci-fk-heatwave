@@ -57,6 +57,7 @@ module "oci-fk-mds-channel" {
   providers = {
     oci = oci.region2
   }
+  mds_compartment_ocid                                        = var.mds_compartment_ocid
   mds_channel_enabled                                         = true
   mds_channel_source_mysql_database_hostname                  = module.oci-fk-mds.mds_database.mds_ip_address
   mds_channel_source_mysql_database_replication_user_name     = "wp_repl_user"
