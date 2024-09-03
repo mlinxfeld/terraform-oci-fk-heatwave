@@ -21,5 +21,7 @@ resource "oci_mysql_channel" "FoggyKitchenMDSChannel" {
     delay_in_seconds = var.mds_channel_target_delay_in_seconds
     tables_without_primary_key_handling = var.mds_channel_target_tables_without_primary_key_handling
   }
+  freeform_tags = var.mds_freeform_tags
+  defined_tags  = var.mds_defined_tags
 }
 
