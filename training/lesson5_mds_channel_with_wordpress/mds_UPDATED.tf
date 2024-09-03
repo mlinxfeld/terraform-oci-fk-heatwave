@@ -64,4 +64,5 @@ module "oci-fk-mds-channel" {
   mds_channel_source_mysql_database_replication_user_password = var.mds_admin_password
   mds_channel_target_db_system_id                             = module.oci-fk-mds-clone-from-x-region-backup[0].mds_database.mds_id
   mds_channel_target_delay_in_seconds                         = 1
+  use_existing_vcn                                            = true
 }
