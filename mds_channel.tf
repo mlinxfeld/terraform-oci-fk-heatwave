@@ -57,4 +57,21 @@ resource "null_resource" "mysqlsh_source_repl_user_setup_with_bastion" {
     }
   }
 
+  provisioner "remote-exec" {
+    connection {
+      type                = "ssh"
+      host                = var.mds_channel_bastion_hostname
+      agent               = false
+      timeout             = "5m"
+      user                = var.mds_channel_bastion_user
+      private_key         = var.mds_channel_bastion_private_key
+    }
+
+    inline = [
+      "chmod +x /home/${var.mds_channel_bastion_user}/repl_user_setup.sh",
+      "sudo /home/${var.mds_channel_bastion_user}/repl_user_setup.sh"
+    ]
+
+  }
+
 }

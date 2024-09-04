@@ -30,6 +30,6 @@ output "generated_ssh_private_key" {
 
 output "mds_channel" {
   value = {
-    mds_channel_id = var.mds_cross_region_clone_enabled ? module.oci-fk-mds-channel[0].mds_channel.mds_channel_id : ""
+    mds_channel_id = var.mds_channel_enabled ? module.oci-fk-mds-channel[0].mds_channel.mds_channel_id : ""
   }
 }

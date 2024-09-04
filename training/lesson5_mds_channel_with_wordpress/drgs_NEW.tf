@@ -1,5 +1,5 @@
 resource "oci_core_drg" "FoggyKitchenDRG1" {
-  count          = var.mds_channel_enable ? 1 : 0    
+  count          = var.mds_channel_enabled ? 1 : 0    
  # depends_on     = [oci_identity_policy.FoggyKitchenRequestorPolicy]
   provider       = oci.region1
   display_name   = "FoggyKitchenDRG1"
@@ -7,7 +7,7 @@ resource "oci_core_drg" "FoggyKitchenDRG1" {
 }
 
 resource "oci_core_drg_attachment" "FoggyKitchenDRG1Attachment" {
-  count        = var.mds_channel_enable ? 1 : 0      
+  count        = var.mds_channel_enabled ? 1 : 0      
 #  depends_on = [oci_identity_policy.FoggyKitchenRequestorPolicy]
   provider     = oci.region1
   display_name = "FoggyKitchenDRG1Attachment"
@@ -16,7 +16,7 @@ resource "oci_core_drg_attachment" "FoggyKitchenDRG1Attachment" {
 }
 
 resource "oci_core_remote_peering_connection" "FoggyKitchenRPC1" {
-  count            = var.mds_channel_enable ? 1 : 0      
+  count            = var.mds_channel_enabled ? 1 : 0      
 #  depends_on       = [oci_identity_policy.FoggyKitchenRequestorPolicy]
   provider         = oci.region1
   compartment_id   = var.mds_compartment_ocid
@@ -27,7 +27,7 @@ resource "oci_core_remote_peering_connection" "FoggyKitchenRPC1" {
 }
 
 resource "oci_core_drg" "FoggyKitchenDRG2" {
-  count          = var.mds_channel_enable ? 1 : 0    
+  count          = var.mds_channel_enabled ? 1 : 0    
  # depends_on     = [oci_identity_policy.FoggyKitchenRequestorPolicy]
   provider       = oci.region2
   display_name   = "FoggyKitchenDRG2"
@@ -35,7 +35,7 @@ resource "oci_core_drg" "FoggyKitchenDRG2" {
 }
 
 resource "oci_core_drg_attachment" "FoggyKitchenDRG2Attachment" {
-  count        = var.mds_channel_enable ? 1 : 0      
+  count        = var.mds_channel_enabled ? 1 : 0      
 #  depends_on = [oci_identity_policy.FoggyKitchenRequestorPolicy]
   provider     = oci.region2
   display_name = "FoggyKitchenDRG2Attachment"
@@ -44,7 +44,7 @@ resource "oci_core_drg_attachment" "FoggyKitchenDRG2Attachment" {
 }
 
 resource "oci_core_remote_peering_connection" "FoggyKitchenRPC2" {
-  count          = var.mds_channel_enable ? 1 : 0   
+  count          = var.mds_channel_enabled ? 1 : 0   
 #  depends_on     = [oci_identity_policy.FoggyKitchenAcceptorPolicy]
   provider       = oci.region2
   compartment_id = var.mds_compartment_ocid

@@ -109,7 +109,7 @@ resource "oci_core_route_table" "FoggyKitchenPrivateRouteTable" {
     destination_type  = "CIDR_BLOCK"
   }
   dynamic "route_rules" {
-    for_each = var.mds_channel_enable ? [1] : []
+    for_each = var.mds_channel_enabled ? [1] : []
     content {
       network_entity_id = oci_core_drg.FoggyKitchenDRG1[0].id
       destination       = var.mds_vcn_cidr_block2

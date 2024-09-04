@@ -165,6 +165,6 @@ variable "mds_cross_region_clone_enabled" {
   default = false
 }
 
-variable "mds_channel_enable" {
+variable "mds_channel_enabled" {
   default = false
 }

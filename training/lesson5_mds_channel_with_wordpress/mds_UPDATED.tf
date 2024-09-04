@@ -52,7 +52,7 @@ module "oci-fk-mds-clone-from-x-region-backup" {
 }
 
 module "oci-fk-mds-channel" { 
-  count = var.mds_cross_region_clone_enabled ? 1 : 0    
+  count = var.mds_channel_enabled ? 1 : 0    
   source = "github.com/mlinxfeld/terraform-oci-fk-heatwave"
   providers = {
     oci = oci.region2
@@ -70,4 +70,8 @@ module "oci-fk-mds-channel" {
   mds_channel_source_ip_address_range                         = "10.0.2.%"
   mds_channel_source_mysql_database_replication_user_name     = var.mds_repl_username
   mds_channel_source_mysql_database_replication_user_password = var.mds_repl_password
+
+  mds_channel_bastion_hostname                                = module.oci-fk-wordpress2[0].public_ip[0]
+  mds_channel_bastion_private_key                             = module.oci-fk-wordpress2[0].generated_ssh_private_key
+
 }
