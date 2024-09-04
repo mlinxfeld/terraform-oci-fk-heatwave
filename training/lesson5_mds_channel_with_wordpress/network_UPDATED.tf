@@ -26,6 +26,14 @@ resource "oci_core_route_table" "FoggyKitchenPublicRouteTable" {
     destination       = "0.0.0.0/0"
     destination_type  = "CIDR_BLOCK"
   }
+  dynamic "route_rules" {
+    for_each = var.mds_channel_enabled ? [1] : []
+    content {
+      network_entity_id = oci_core_drg.FoggyKitchenDRG1[0].id
+      destination       = var.mds_vcn_cidr_block2
+      destination_type  = "CIDR_BLOCK"
+    }    
+  }
 }
 
 resource "oci_core_security_list" "FoggyKitchenBastionSecurityList" {

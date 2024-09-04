@@ -6,9 +6,12 @@ mds_availability_domain2 = <ad_name_in_region2>"
 mds_compartment_ocid    = "<compartment_ocid>"
 mds_admin_password      = "<admin_password>" # MySQL Heatwave Admin password (mysql user)
 mds_wp_password         = "<wp_user_password>" # MySQL Heatware WP password (wp user)
-wp_site_admin_pass      = "wp_admin_password>" # WordPress Console Admin User
+wp_site_admin_pass      = "<wp_admin_password>" # WordPress Console Admin User
+mds_repl_password       = "<mds_repl_password>"
 
-mds_manual_backup_enabled              = false
-mds_cross_region_manual_backup_enabled = false
-mds_cross_region_clone_enabled         = false
-mds_channel_enable                     = false
+mds_manual_backup_enabled                   = false # This flag will enable manual backup of source MDS instance in region1
+mds_cross_region_manual_backup_enabled      = false # This flag will deploy cross-region backup copy into region2
+mds_cross_region_clone_enabled              = false # This flag will create MDS instance in region2 based on the cross-region backup copy
+mds_channel_repl_user_setup_enabled         = false # This flag will create replica user in MDS instance in region1
+mds_channel_enabled                         = false # This flag will enable MDS channel for replica from MDS instance in region1 (source) into MDS instance in region2 (target)
+wordpress_on_mds_cross_region_clone_enabled = false # This flag will enable WordPress2 instance in region2 based on replicated MDS instance in region2 (target)

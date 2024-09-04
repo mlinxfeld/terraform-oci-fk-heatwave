@@ -10,7 +10,7 @@ module "oci-fk-wordpress" {
   flex_shape_ocpus          = var.wordpress_compute_flex_shape_ocpus
   flex_shape_memory         = var.wordpress_compute_flex_shape_memory
   ssh_authorized_keys       = tls_private_key.public_private_key_pair.public_key_openssh
-  mds_ip                    = module.oci-fk-mds.mds_database.mds_ip_address
+  mds_ip                    = module.oci-fk-mds-source.mds_database.mds_ip_address
   wp_subnet_id              = oci_core_subnet.FoggyKitchenPublicSubnet.id
   admin_username            = var.mds_admin_username
   admin_password            = var.mds_admin_password
@@ -29,7 +29,7 @@ module "oci-fk-wordpress" {
 }
 
 module "oci-fk-wordpress2" {
-  count                     = var.mds_cross_region_clone_enabled ? 1 : 0  
+  count                     = var.wordpress_on_mds_cross_region_clone_enabled ? 1 : 0  
   providers = {
     oci = oci.region2
   }  
@@ -44,7 +44,7 @@ module "oci-fk-wordpress2" {
   flex_shape_ocpus          = var.wordpress_compute_flex_shape_ocpus
   flex_shape_memory         = var.wordpress_compute_flex_shape_memory
   ssh_authorized_keys       = tls_private_key.public_private_key_pair.public_key_openssh
-  mds_ip                    = module.oci-fk-mds-clone-from-x-region-backup[0].mds_database.mds_ip_address
+  mds_ip                    = module.oci-fk-mds-target-clone-from-x-region-backup[0].mds_database.mds_ip_address
   wp_subnet_id              = oci_core_subnet.FoggyKitchenPublicSubnet2.id
   admin_username            = var.mds_admin_username
   admin_password            = var.mds_admin_password
