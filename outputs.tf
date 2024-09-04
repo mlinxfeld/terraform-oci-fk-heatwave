@@ -18,6 +18,6 @@ output "mds_backup" {
 
 output "mds_channel" {
    value = {
-      mds_channel_id = var.mds_channel_enabled || var.mds_channel_repl_user_setup_enabled ? oci_mysql_channel.FoggyKitchenMDSChannel[0].id : ""
+      mds_channel_id = var.mds_channel_enabled && !(var.mds_channel_repl_user_setup_enabled) ? oci_mysql_channel.FoggyKitchenMDSChannel[0].id : ""
    }
 }
