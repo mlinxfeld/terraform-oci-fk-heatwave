@@ -60,9 +60,14 @@ module "oci-fk-mds-channel" {
   mds_compartment_ocid                                        = var.mds_compartment_ocid
   mds_channel_enabled                                         = true
   mds_channel_source_mysql_database_hostname                  = module.oci-fk-mds.mds_database.mds_ip_address
-  mds_channel_source_mysql_database_replication_user_name     = var.mds_repl_username
-  mds_channel_source_mysql_database_replication_user_password = var.mds_admin_password
   mds_channel_target_db_system_id                             = module.oci-fk-mds-clone-from-x-region-backup[0].mds_database.mds_id
   mds_channel_target_delay_in_seconds                         = 1
   use_existing_vcn                                            = true
+
+  mds_channel_repl_user_setup_enabled                         = true
+  mds_admin_username                                          = var.mds_admin_username
+  mds_admin_password                                          = var.mds_admin_password
+  mds_channel_source_ip_address_range                         = "10.0.2.%"
+  mds_channel_source_mysql_database_replication_user_name     = var.mds_repl_username
+  mds_channel_source_mysql_database_replication_user_password = var.mds_repl_password
 }

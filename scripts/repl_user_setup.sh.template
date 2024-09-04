@@ -1,0 +1,7 @@
+#!/bin/bash 
+
+mysqlsh --user ${admin_username} --password=${admin_password} --host ${mysql_hostname} --sql -e "CREATE USER '${repl_username}'@'${ip_address_range}' IDENTIFIED BY '${repl_password}';"
+echo "CREATE REPL USER executed."
+
+mysqlsh --user ${admin_username} --password=${admin_password} --host ${mysql_hostname} --sql -e "GRANT REPLICATION SLAVE ON *.* TO '${repl_username}'@'${ip_address_range}';"
+echo "GRANT REPLICATION SLAVE executed."

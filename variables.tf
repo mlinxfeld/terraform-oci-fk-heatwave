@@ -220,3 +220,23 @@ variable "mds_channel_target_delay_in_seconds" {
 variable "mds_channel_target_tables_without_primary_key_handling" {
   default = "GENERATE_IMPLICIT_PRIMARY_KEY"
 }
+
+variable "mds_channel_repl_user_setup_enabled" {
+  default = false
+}
+
+variable "mds_channel_bastion_user" {
+  default = "opc"
+}
+
+variable "mds_channel_bastion_hostname" {
+  default = ""
+}
+
+variable "mds_channel_bastion_private_key" {
+  default = ""
+}
+
+variable "mds_channel_source_ip_address_range" {
+  default = "10.0.2.%"
+}

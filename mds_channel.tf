@@ -1,4 +1,5 @@
 resource "oci_mysql_channel" "FoggyKitchenMDSChannel" {
+  depends_on     = [null_resource.mysqlsh_source_repl_user_setup_with_bastion]
   count          = var.mds_channel_enabled ? 1 : 0  
   display_name   = var.mds_channel_display_name
   
@@ -25,3 +26,35 @@ resource "oci_mysql_channel" "FoggyKitchenMDSChannel" {
   defined_tags  = var.mds_defined_tags
 }
 
+data "template_file" "repl_user_setup" {
+  count = var.mds_channel_enabled && var.mds_channel_repl_user_setup_enabled ? 1 : 0    
+  template = file("${path.module}/scripts/repl_user_setup.sh.template")
+
+  vars = {
+    mysql_hostname   = var.mds_channel_source_mysql_database_hostname
+    admin_username   = var.mds_admin_username
+    admin_password   = var.mds_admin_password
+    ip_address_range = var.mds_channel_source_ip_address_range
+    repl_username    = var.mds_channel_source_mysql_database_replication_user_name
+    repl_password    = var.mds_channel_source_mysql_database_replication_user_password
+  }
+}
+
+resource "null_resource" "mysqlsh_source_repl_user_setup_with_bastion" {
+  count = var.mds_channel_enabled && var.mds_channel_repl_user_setup_enabled ? 1 : 0  
+
+  provisioner "file" {
+    content     = data.template_file.repl_user_setup.rendered
+    destination = "/home/${var.mds_channel_bastion_user}/repl_user_setup.sh"
+
+    connection {
+      type                = "ssh"
+      host                = var.mds_channel_bastion_hostname
+      agent               = false
+      timeout             = "5m"
+      user                = var.mds_channel_bastion_user
+      private_key         = var.mds_channel_bastion_private_key
+    }
+  }
+
+}
