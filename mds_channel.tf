@@ -27,7 +27,7 @@ resource "oci_mysql_channel" "FoggyKitchenMDSChannel" {
 }
 
 data "template_file" "repl_user_setup" {
-  count = var.mds_channel_enabled && var.mds_channel_repl_user_setup_enabled ? 1 : 0    
+  count = var.mds_channel_repl_user_setup_enabled ? 1 : 0    
   template = file("${path.module}/scripts/repl_user_setup.sh.template")
 
   vars = {
@@ -41,7 +41,7 @@ data "template_file" "repl_user_setup" {
 }
 
 resource "null_resource" "mysqlsh_source_repl_user_setup_with_bastion" {
-  count = var.mds_channel_enabled && var.mds_channel_repl_user_setup_enabled ? 1 : 0  
+  count = var.mds_channel_repl_user_setup_enabled ? 1 : 0  
 
   provisioner "file" {
     content     = data.template_file.repl_user_setup[0].rendered
