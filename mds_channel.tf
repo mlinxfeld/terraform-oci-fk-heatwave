@@ -44,7 +44,7 @@ resource "null_resource" "mysqlsh_source_repl_user_setup_with_bastion" {
   count = var.mds_channel_enabled && var.mds_channel_repl_user_setup_enabled ? 1 : 0  
 
   provisioner "file" {
-    content     = data.template_file.repl_user_setup.rendered
+    content     = data.template_file.repl_user_setup[0].rendered
     destination = "/home/${var.mds_channel_bastion_user}/repl_user_setup.sh"
 
     connection {
