@@ -24,7 +24,7 @@ module "oci-fk-mds-replica" {
   mds_configuration_description          = "FoggyKitchen MDS Replica Custom Configuration"
   mds_configuration_display_name         = "FoggyKitchenMDSReplicaCustomConfiguration"
   mds_replica_overrides                  = true
-  mds_replica_overrides_configuration_id = module.oci-fk-mds.mds_database.mds_configuration_id
+  #mds_replica_overrides_configuration_id = module.oci-fk-mds.mds_database.mds_configuration_id
   mds_replica_overrides_shape            = "MySQL.4"
   use_existing_vcn                       = true
   subnet_id                              = module.oci-fk-mds.mds_database.mds_subnet_id

@@ -10,7 +10,7 @@ resource "oci_mysql_replica" "FoggyKitchenMDSReplica" {
     dynamic "replica_overrides" {
         for_each = var.mds_replica_overrides ? [1] : []
         content {
-            configuration_id = var.mds_replica_overrides_configuration_id
+            configuration_id = (var.mds_replica_enabled) && (var.mds_replica_overrides_configuration_id == "") ? oci_mysql_mysql_configuration.FoggyKitchenMDSConfiguration.id : var.mds_replica_overrides_configuration_id
             mysql_version    = var.replica_replica_overrides_mysql_version
             shape_name       = var.mds_replica_overrides_shape
         }
