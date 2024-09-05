@@ -274,5 +274,5 @@ variable "replica_replica_overrides_mysql_version" {
 }
 
 variable "mds_replica_overrides_shape" {
-  default = "MySQL.2" # MySQL.2, MySQL.4, MySQL.8, MySQL.16, MySQL.32, MySQL.64, MySQL.128 , MySQL.256
+  default = "MySQL.4" # MySQL.2, MySQL.4, MySQL.8, MySQL.16, MySQL.32, MySQL.64, MySQL.128 , MySQL.256
 }
