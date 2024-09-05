@@ -12,7 +12,7 @@ variable "heatwave_cluster_enabled" {
   default = false
 }
 variable "mds_shape" {
-  default = "MySQL.Free" # "MySQL.Free, MySQL.2, MySQL.4, MySQL.8, MySQL.16, MySQL.32, MySQL.64, MySQL.128 , MySQL.256
+  default = "MySQL.Free" # MySQL.Free, MySQL.2, MySQL.4, MySQL.8, MySQL.16, MySQL.32, MySQL.64, MySQL.128 , MySQL.256
 }
 variable "heatwave_shape" {
   default = "HeatWave.Free" # HeatWave.Free, HeatWave.32GB, HeatWave.512GB
@@ -239,4 +239,40 @@ variable "mds_channel_bastion_private_key" {
 
 variable "mds_channel_source_ip_address_range" {
   default = "10.0.2.%"
+}
+
+variable "mds_replica_enabled" {
+  default = false
+}
+
+variable "mds_replica_source_db_system_id" {
+  default = ""
+}
+
+variable "mds_replica_description" {
+  default = "FoggyKitchen MDS Replica"
+}
+
+variable "mds_replica_display_name" {
+  default = "FoggyKitchenMDSReplica"
+}
+
+variable "mds_replica_is_delete_protected" {
+  default = false
+}
+
+variable "mds_replica_overrides" {
+  default = false
+}
+
+variable "mds_replica_overrides_configuration_id" {
+  default = ""
+}
+
+variable "replica_replica_overrides_mysql_version" {
+  default = ""  
+}
+
+variable "mds_replica_overrides_shape" {
+  default = "MySQL.2" # MySQL.2, MySQL.4, MySQL.8, MySQL.16, MySQL.32, MySQL.64, MySQL.128 , MySQL.256
 }

@@ -1,5 +1,5 @@
 resource "oci_mysql_mysql_db_system" "FoggyKitchenMDS" {
-  count               = !var.mds_cross_region_manual_backup_enabled && !(var.mds_channel_enabled) && !(var.mds_channel_repl_user_setup_enabled) ? 1 : 0
+  count               = !var.mds_cross_region_manual_backup_enabled && !(var.mds_channel_enabled) && !(var.mds_channel_repl_user_setup_enabled) && !(var.mds_replica_enabled) ? 1 : 0
   admin_password      = var.mds_admin_password
   admin_username      = var.mds_admin_username
   availability_domain = var.mds_availability_domain
