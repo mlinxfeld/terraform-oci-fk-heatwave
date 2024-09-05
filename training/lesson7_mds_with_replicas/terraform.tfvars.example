@@ -3,3 +3,4 @@ region                  = "<region>"
 mds_availability_domain = "<ad_name>"
 mds_compartment_ocid    = "<compartment_ocid>"
 mds_admin_password      = "<admin_password>"
+mds_replica_enabled     = false # Please turn the flag to true if you want to enable replica.
