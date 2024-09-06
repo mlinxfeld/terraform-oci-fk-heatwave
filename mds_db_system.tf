@@ -4,7 +4,7 @@ resource "oci_mysql_mysql_db_system" "FoggyKitchenMDS" {
   admin_username      = var.mds_admin_username
   availability_domain = var.mds_availability_domain
   compartment_id      = var.mds_compartment_ocid 
-  shape_name          = var.heatwave_cluster_enabled ? var.heatwave_shape : var.mds_shape
+  shape_name          = var.mds_shape
   subnet_id           = var.subnet_id != "" ? var.subnet_id : var.use_public_subnet ? oci_core_subnet.FoggyKitchenPublicSubnet[0].id : oci_core_subnet.FoggyKitchenPrivateSubnet[0].id
   configuration_id    = var.mds_custom_configuration_enabled && !(var.mds_shape == "MySQL.Free") ? oci_mysql_mysql_configuration.FoggyKitchenMDSConfiguration[0].id : null
 
