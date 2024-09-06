@@ -120,7 +120,7 @@ mds_replica_overrides_mysql_version
 mds_replica_overrides_shape | MySQL.2, MySQL.4, MySQL.8, MySQL.16, MySQL.32, MySQL.64, MySQL.128 , MySQL.256
 
 ## Contributing
-This project is open source. Please submit your contributions by forking this repository and submitting a pull request! FoggyKitchen appreciates any contributions that are made by the open source community.
+This project is open source. Please submit your contributions by forking this repository and submitting a pull request! [FoggyKitchen.com](https://foggykitchen.com/) appreciates any contributions that are made by the open source community.
 
 ## License
 Copyright (c) 2024 [FoggyKitchen.com](https://foggykitchen.com/)
