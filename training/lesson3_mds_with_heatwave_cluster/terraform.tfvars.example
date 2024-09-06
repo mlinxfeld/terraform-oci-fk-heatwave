@@ -3,4 +3,4 @@ region                  = "<region>"
 mds_availability_domain = "<ad_name>"
 mds_compartment_ocid    = "<compartment_ocid>"
 mds_admin_password      = "<admin_password>"
-mds_heatwave_enabled    = false # Please turn the flag to true if you want to enable HeatWave Cluster.
+mds_heatwave_enabled    = true # Please turn the flag to true if you want to enable HeatWave Cluster.
