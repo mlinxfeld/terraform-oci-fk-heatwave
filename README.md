@@ -33,8 +33,8 @@ To deploy MDS using this Module with minimal effort use this:
 ```hcl
 module "fk-mds" {
   source                                = "github.com/mlinxfeld/terraform-oci-fk-heatwave"
-  mds_admin_password                    = var.mds_admin_password
-  mds_availability_domain               = var.mds_availability_domain
+  mds_admin_password                    = var.admin_password
+  mds_availability_domain               = var.availability_domain
   mds_compartment_ocid                  = var.compartment_ocid
   use_existing_vcn                      = false
 }
@@ -42,7 +42,82 @@ module "fk-mds" {
 
 Argument | Description
 --- | ---
-compartment_ocid | Compartment's OCID where MDS will be created.
+mds_compartment_ocid | Compartment's OCID where MDS will be created.
+mds_admin_password |
+variable "mds_admin_username | 
+mds_availability_domain |
+heatwave_cluster_enabled |
+mds_shape | MySQL.Free, MySQL.2, MySQL.4, MySQL.8, MySQL.16, MySQL.32, MySQL.64, MySQL.128 , MySQL.256
+heatwave_shape | HeatWave.Free, HeatWave.32GB, HeatWave.512GB
+heatwave_cluster_size |
+use_existing_vcn |
+use_public_subnet |
+subnet_id |
+mds_backup_policy_is_enabled |
+mds_backup_policy_retention_in_days |
+mds_backup_policy_window_start_time |
+mds_data_storage_size_in_gb | Must be an integer between 50 and 131,072.
+mds_defined_tags |
+mds_description |
+mds_display_name |
+mds_fault_domain |
+mds_freeform_tags |
+mds_hostname_label |
+mds_is_highly_available |
+mds_maintenance_window_start_time |
+mds_port | By default 3306
+mds_port_x | By default 33060
+mds_vcn_cidr_block |
+mds_vcn_dns_label |
+mds_vcn_display_name |
+mds_subnet_cidr_block |
+mds_subnet_display_name |
+mds_manual_backup_enabled |
+mds_backup_backup_type | FULL or INCREMENTAL
+mds_backup_description |
+mds_backup_display_name |
+mds_backup_retention_in_days |
+mds_cross_region_manual_backup_enabled |
+mds_cross_region_backup_region |
+mds_cross_region_manual_backup_ocid |
+mds_cross_region_backup_description |
+mds_cross_region_backup_display_name |
+mds_defined_source_enabled |
+mds_defined_source_type | BACKUP vs PITR vs IMPORTURL 
+mds_defined_source_backup_ocid |
+mds_defined_source_db_system_ocid |
+mds_defined_source_db_system_recovery_point |
+mds_defined_source_par_url |
+mds_custom_configuration_enabled |
+mds_configuration_description |
+mds_configuration_display_name |
+mds_config_binlog_expire_logs_seconds |
+mds_channel_enabled |
+mds_channel_display_name |
+mds_channel_source_mysql_database_hostname |
+mds_channel_source_mysql_database_replication_user_name |
+mds_channel_source_mysql_database_source_type |
+mds_channel_source_mysql_database_ssl_mode |
+mds_channel_source_mysql_database_replication_user_password |
+mds_channel_target_target_type |
+mds_channel_target_db_system_id |
+mds_channel_target_channel_name" |
+mds_channel_target_delay_in_seconds |
+mds_channel_target_tables_without_primary_key_handling
+mds_channel_repl_user_setup_enabled |
+mds_channel_bastion_user |
+mds_channel_bastion_hostname |
+mds_channel_bastion_private_key |
+mds_channel_source_ip_address_range |
+mds_replica_enabled |
+mds_replica_source_db_system_id |
+mds_replica_description |
+mds_replica_display_name |
+mds_replica_is_delete_protected |
+mds_replica_overrides |
+mds_replica_overrides_configuration_id |
+mds_replica_overrides_mysql_version
+mds_replica_overrides_shape | MySQL.2, MySQL.4, MySQL.8, MySQL.16, MySQL.32, MySQL.64, MySQL.128 , MySQL.256
 
 ## Contributing
 This project is open source. Please submit your contributions by forking this repository and submitting a pull request! FoggyKitchen appreciates any contributions that are made by the open source community.
