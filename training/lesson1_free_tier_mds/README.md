@@ -9,7 +9,7 @@ In this lesson, we'll delve into the creation of a **Free Tier MySQL Database Se
 
 ## Deploy Using Oracle Resource Manager
 
-1. Click [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/mlinxfeld/terraform-oci-fk-heatwave/releases/latest/download/terraform-oci-fk-mds-lesson1.zip)
+1. Click [![Deploy to Oracle Cloud](https://oci-resourcemanager-plugin.plugins.oci.oraclecloud.com/latest/deploy-to-oracle-cloud.svg)](https://cloud.oracle.com/resourcemanager/stacks/create?region=home&zipUrl=https://github.com/mlinxfeld/terraform-oci-fk-heatwave/releases/latest/download/terraform-oci-fk-heatwave-lesson1.zip)
 
     If you aren't already signed in, when prompted, enter the tenancy and user credentials.
 
@@ -27,9 +27,9 @@ In this lesson, we'll delve into the creation of a **Free Tier MySQL Database Se
 
 7. If no further changes are necessary, return to the Stack Details page, click **Terraform Actions**, and select **Apply**. 
 
-## Deploy Using the Terraform CLI in Cloud Shell
+## Deploy Using the Terraform CLI 
 
-### Clone of the repo into OCI Cloud Shell
+### Clone of the repo 
 
 Now, you'll want a local copy of this repo. You can make that with the commands:
 Clone the repo from github by executing the command as follows and then go to proper subdirectory:
@@ -39,7 +39,7 @@ mlinxfeld@Martins-MacBook-Pro github % git clone https://github.com/mlinxfeld/te
 
 mlinxfeld@Martins-MacBook-Pro github % cd terraform-oci-fk-heatwave
 
-mlinxfeld@Martins-MacBook-Pro lesson1_free_tier_mds % cd training/lesson1_free_tier_mds/
+mlinxfeld@Martins-MacBook-Pro terraform-oci-fk-heatwave % cd training/lesson1_free_tier_mds/
 ```
 
 ### Prerequisites
