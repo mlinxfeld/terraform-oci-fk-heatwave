@@ -1,7 +1,7 @@
 
 # FoggyKitchen OCI MySQL Heatwave with Terraform 
 
-## LESSON 3 - Creating Free Tier MySQL Database Service with public access
+## LESSON 3 - Creating Free Tier MySQL Database Service with HeatWave Cluster
 
 In this lesson, we'll delve into the creation of a **Free Tier MySQL Database Service** in Oracle Cloud Infrastructure with a **HeatWave Cluster** using a **Terraform module**, focusing on configuring a MySQL instance with in-memory query acceleration to significantly enhance the performance of analytical queries while utilizing free tier resources.
 
