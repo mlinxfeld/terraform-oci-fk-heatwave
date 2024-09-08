@@ -5,7 +5,7 @@
 
 In this lesson, we'll delve into the creation of a **Free Tier MySQL Database Service** in Oracle Cloud Infrastructure using a **Terraform module**, focusing on automating the setup of a fully managed MySQL instance, giving you the foundational skills to efficiently manage your database while leveraging the free tier resources.
 
-![](lesson1_free_tier_mds.png)
+![](images/lesson1_free_tier_mds.png)
 
 ## Deploy Using Oracle Resource Manager
 
