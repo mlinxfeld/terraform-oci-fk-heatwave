@@ -108,8 +108,7 @@ Run the following command for applying changes with the proposed plan:
 
 ```
 mlinxfeld@Martins-MacBook-Pro lesson2_free_tier_mds_with_public_access % terraform apply
-
-mlinxfeld@Martins-MacBook-Pro lesson2_free_tier_mds_with_public_access % terraform apply                               
+                           
 data.oci_identity_availability_domains.ADs: Reading...
 data.oci_core_images.OSImage: Reading...
 data.oci_identity_availability_domains.ADs: Read complete after 0s [id=IdentityAvailabilityDomainsDataSource-3596290162]
