@@ -1,7 +1,10 @@
 tenancy_ocid            = <tenancy_ocid>"
+user_ocid               = "<user_ocid>"
+fingerprint             = "<fingerprint>"
+private_key_path        = "<private_key_path>"
 region                  = "<region>"
 mds_availability_domain = "<ad_name>"
 mds_compartment_ocid    = "<compartment_ocid>"
-mds_admin_password      = "<admin_password>" # MySQL Heatwave Admin password (mysql user)
-mds_wp_password         = "<wp_user_password>" # MySQL Heatware WP password (wp user)
-wp_site_admin_pass      = "wp_admin_password>" # WordPress Console Admin User
+mds_admin_password      = "<mds_admin_password>" # MySQL Database Service ADMIN password
+mds_wp_password         = "<mds_wp_password>"    # MySQL Database WP user password
+wp_site_admin_pass      = "<wp_site_admin_pass>" # WordPress ADMIN User password
