@@ -367,11 +367,11 @@ wordpress_wp-admin_URL = "http://141.147.27.91/wp-admin/"
 
 1. Review the MySQL Database Service instance that is not part of the FreeTier:
 
-![](images/lesson5_mds_manual_backups_with_wordpres1.png)
+![](images/lesson5_mds_manual_backups_with_wordpress1.png)
 
 2. Verify access to the WordPress Admin Console:
 
-![](images/lesson5_mds_manual_backups_with_wordpres2.png)
+![](images/lesson5_mds_manual_backups_with_wordpress2.png)
 
 ### Enabling local manual backup 
 
@@ -471,7 +471,7 @@ wordpress_wp-admin_URL = "http://141.147.27.91/wp-admin/"
 
 1. Confirm that a local manual backup has been successfully created:
 
-![](images/lesson5_mds_manual_backups_with_wordpres.png)
+![](images/lesson5_mds_manual_backups_with_wordpress.png)
 
 ### Enabling cross-regional backup 
 
@@ -580,7 +580,7 @@ wordpress_wp-admin_URL = "http://141.147.27.91/wp-admin/"
 
 1. Confirm that a cross-region backup has been successfully created:
 
-![](images/lesson5_mds_manual_backups_with_wordpres3.png)
+![](images/lesson5_mds_manual_backups_with_wordpress3.png)
 
 ### Enabling cross-regional backup-based MySQL Database Service instance
 
@@ -769,11 +769,11 @@ wordpress_wp-admin_URL = "http://141.147.27.91/wp-admin/"
 
 1. Verify that the operation of creating the MySQL Database Service (MDS) instance from a cross-region backup has been completed successfully:
 
-![](images/lesson5_mds_manual_backups_with_wordpres4.png)
+![](images/lesson5_mds_manual_backups_with_wordpress4.png)
 
 2. Verify the status and proper functioning of the MySQL Database Service (MDS) instance itself:
 
-![](images/lesson5_mds_manual_backups_with_wordpres5.png)
+![](images/lesson5_mds_manual_backups_with_wordpress5.png)
 
 ### Destroy the changes 
 
