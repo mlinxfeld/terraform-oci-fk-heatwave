@@ -1,7 +1,7 @@
 
 # FoggyKitchen OCI MySQL Heatwave with Terraform 
 
-## LESSON 3 - Creating Free Tier MySQL Database Service with WordPress CMS
+## LESSON 4 - Creating Free Tier MySQL Database Service with WordPress CMS
 
 In this lesson, we'll delve into the creation of a **Free Tier MySQL Database Service** in Oracle Cloud Infrastructure, combined with the deployment of **WordPress CMS** using a **Terraform module**, focusing on setting up a scalable MySQL instance to power a WordPress website while utilizing free tier resources.
 
@@ -46,7 +46,7 @@ mlinxfeld@Martins-MacBook-Pro terraform-oci-fk-heatwave % cd training/lesson4_fr
 Create environment file with terraform.tfvars file starting with example file:
 
 ```
-mlinxfeld@Martins-MacBook-Pro lesson3_free_tier_mds_with_heatwave_cluster % cp terraform.tfvars.example terraform.tfvars
+mlinxfeld@Martins-MacBook-Pro lesson4_free_tier_mds_with_wordpress % cp terraform.tfvars.example terraform.tfvars
 
 mlinxfeld@Martins-MacBook-Pro lesson4_free_tier_mds_with_wordpress % vi terraform.tfvars
 
