@@ -15,15 +15,6 @@ output "wordpress_wp-admin_URL" {
   value = "http://${module.oci-fk-wordpress.public_ip[0]}/wp-admin/"
 }
 
-output "wordpress_home_URL" {
-  value = "http://${module.oci-fk-wordpress.public_ip[0]}/"
-}
-
-output "wordpress_wp-admin_URL" {
-  value = "http://${module.oci-fk-wordpress.public_ip[0]}/wp-admin/"
-}
-
-
 output "generated_ssh_private_key" {
   value     = module.oci-fk-wordpress.generated_ssh_private_key
   sensitive = true

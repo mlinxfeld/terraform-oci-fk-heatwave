@@ -37,5 +37,4 @@ module "oci-fk-wordpress" {
   bastion_flex_shape_ocpus  = var.bastion_flex_shape_ocpus
   bastion_flex_shape_memory = var.bastion_flex_shape_memory
   bastion_service_region    = var.region 
-  mds_manual_backup_enabled = var.mds_manual_backup_enabled
 }
