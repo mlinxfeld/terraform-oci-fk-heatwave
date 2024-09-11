@@ -5,7 +5,7 @@
 
 In this lesson, we'll delve into the creation of a **MySQL Database Service** in Oracle Cloud Infrastructure with a **Replication Channel** using OCI's **MDS Channel feature** and a **Terraform module**, along with deploying **WordPress CMS**, focusing on replicating the database from one region to another to establish a new production environment, leveraging cross-region replication for enhanced disaster recovery and business continuity.
 
-![](images/lesson6_mds_channel_with_wordpress.png)
+![](images/lesson6_mds_channel_with_wordpress5.png)
 
 ## Deploy Using Oracle Resource Manager
 
@@ -641,11 +641,11 @@ wordpress_wp-admin_URL = "http://89.168.81.104/wp-admin/"
 
 1. Confirm that MDS Channel work request is successful:
 
-![](images/lesson5_mds_manual_backups_with_wordpress4.png)
+![](images/lesson6_mds_channel_with_wordpress4.png)
 
 2. Confirm that MDS Channel is active (sometimes you need to resume it):
 
-![](images/lesson5_mds_manual_backups_with_wordpress5.png)
+![](images/lesson6_mds_channel_with_wordpress5.png)
 
 ### Enabling WordPress deployment in the target region
 
@@ -765,7 +765,7 @@ wordpress_wp-admin_URL = "http://89.168.81.104/wp-admin/"
 
 1. Confirm that WordPress is up and running in the target location
 
-![](images/lesson5_mds_manual_backups_with_wordpress6.png)
+![](images/lesson6_mds_channel_with_wordpress6.png)
 
 ### Destroy the changes 
 
