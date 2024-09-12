@@ -3,7 +3,7 @@
 
 ## LESSON 6 - Creating MySQL Database Service with Replication Channel and WordPress CMS
 
-In this lesson, we'll delve into the creation of a **MySQL Database Service** in Oracle Cloud Infrastructure with a **Replication Channel** using OCI's **MDS Channel feature** and a **Terraform module**, along with deploying **WordPress CMS**, focusing on replicating the database from one region to another to establish a new production environment, leveraging cross-region replication for enhanced disaster recovery and business continuity.
+In this lesson, we'll delve into the creation of a **MySQL Database Service** in Oracle Cloud Infrastructure with a **Replication Channel** using OCI's MDS Channel feature and a Terraform module, along with deploying WordPress CMS. The focus will be on setting up a cross-regional replication channel that connects the source MySQL Database Service in the first region to the target MDS in the second region. This target MDS was originally created from a cross-regional backup in the previous lesson. By the end of this lesson, you'll learn how to replicate the database across regions, establishing a new production environment and enhancing disaster recovery and business continuity.
 
 ![](images/lesson6_mds_channel_with_wordpress5.png)
 

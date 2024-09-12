@@ -3,7 +3,7 @@
 
 ## LESSON 5 - Creating MySQL Database Service with manual backups and WordPress CMS
 
-In this lesson, we'll delve into the creation of a **MySQL Database Service** in Oracle Cloud Infrastructure with **manual backups** using a **Terraform module**, along with the deployment of **WordPress CMS**, focusing on configuring a reliable backup strategy to ensure data protection and recovery for your WordPress website, with local backups being securely copied to a remote site for **cross-regional backup**.
+In this lesson, we'll delve into the creation of a **MySQL Database Service** in Oracle Cloud Infrastructure with manual backups using a Terraform module, along with the deployment of **WordPress CMS**. The lesson will focus on configuring a reliable backup strategy to ensure data protection and recovery for your WordPress website. First, we'll create a **local manual backup**, then securely copy this backup to a remote region for **cross-regional backup**. Finally, you'll learn how to provision a new MySQL Database Service instance from the cross-regional backup, ensuring robust disaster recovery and continuity across regions.
 
 ![](images/lesson5_mds_manual_backups_with_wordpress.png)
 
