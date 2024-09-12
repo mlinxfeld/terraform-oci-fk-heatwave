@@ -1,5 +1,8 @@
 tenancy_ocid            = <tenancy_ocid>"
 region                  = "<region>"
+user_ocid               = "<user_ocid>"
+fingerprint             = "<fingerprint>"
+private_key_path        = "<private_key_path>"
 mds_availability_domain = "<ad_name>"
 mds_compartment_ocid    = "<compartment_ocid>"
 mds_admin_password      = "<admin_password>"
