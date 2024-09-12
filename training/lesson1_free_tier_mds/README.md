@@ -761,3 +761,6 @@ module.oci-fk-free-mds.oci_core_vcn.FoggyKitchenVCN[0]: Destruction complete aft
 
 Destroy complete! Resources: 8 destroyed.
 ```
+
+## Copyright
+Copyright (c) 2024 [FoggyKitchen.com](https://foggykitchen.com/)

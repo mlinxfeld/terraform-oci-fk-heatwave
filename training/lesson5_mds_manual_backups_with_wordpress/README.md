@@ -839,3 +839,6 @@ oci_core_vcn.FoggyKitchenVCN: Destruction complete after 1s
 Destroy complete! Resources: 34 destroyed.
 
 ```
+
+## Copyright
+Copyright (c) 2024 [FoggyKitchen.com](https://foggykitchen.com/)

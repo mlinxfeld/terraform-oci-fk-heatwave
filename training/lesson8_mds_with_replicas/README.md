@@ -568,3 +568,6 @@ module.oci-fk-mds.oci_core_vcn.FoggyKitchenVCN[0]: Destruction complete after 1s
 
 Destroy complete! Resources: 11 destroyed.
 ```
+
+## Copyright
+Copyright (c) 2024 [FoggyKitchen.com](https://foggykitchen.com/)
