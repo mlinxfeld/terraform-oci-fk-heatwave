@@ -483,6 +483,7 @@ mds_database = {
   "mds_port" = "3306"
   "mds_port_x" = "33060"
 }
+```
 
 ### Verify the deployment:
 
@@ -555,6 +556,7 @@ Do you really want to destroy all resources?
   Enter a value: yes
 
 (...)
+
 module.oci-fk-mds.oci_core_subnet.FoggyKitchenPrivateSubnet[0]: Destroying... [id=ocid1.subnet.oc1.eu-frankfurt-1.aaaaaaaanrxirwrqvxr6zgiwjhlhrhsgknzyizchzemnrfuea4qd7qzgja5a]
 module.oci-fk-mds.oci_mysql_mysql_configuration.FoggyKitchenMDSConfiguration[0]: Destroying... [id=ocid1.mysqlconfiguration.oc1.eu-frankfurt-1.aaaaaaaaiss4m5gxegsc3slpkqzoqnyh44q7shm7ot2o6f4f7borahm2sc2a]
 module.oci-fk-mds.oci_mysql_mysql_configuration.FoggyKitchenMDSConfiguration[0]: Destruction complete after 1s
