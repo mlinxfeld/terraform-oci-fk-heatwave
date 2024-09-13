@@ -199,11 +199,11 @@ wordpress_wp-admin_URL = "http://130.162.59.144/wp-admin/"
 
 1. Verify access to the WordPress Admin Console:
 
-![](images/lesson7_ha_mds_with_ha_wordpress1.png)
+![](images/lesson7_ha_mds_with_ha_wordpress2.png)
 
 2. Verify MDS instance in HA configuration:
 
-![](images/lesson7_ha_mds_with_ha_wordpress.png)
+![](images/lesson7_ha_mds_with_ha_wordpress1.png)
 
 3. Verify WordPress compute instances:
 
