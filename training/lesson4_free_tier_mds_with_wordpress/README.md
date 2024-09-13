@@ -355,13 +355,17 @@ wordpress_wp-admin_URL = "http://130.162.49.74/wp-admin/"
 
 ### Access WordPress Admin Console
 
-1. Pickup `wordpress_wp-admin_URL` output and access WP Admin Login Webpage:
+1. Verify existence of WordPress Server:
 
 ![](images/lesson4_free_tier_mds_with_wordpress1.png)
 
-2. After successful login navigate in WP Admin Console:
+2. Pickup `wordpress_wp-admin_URL` output and access WP Admin Login Webpage:
 
 ![](images/lesson4_free_tier_mds_with_wordpress2.png)
+
+3. After successful login navigate in WP Admin Console:
+
+![](images/lesson4_free_tier_mds_with_wordpress3.png)
 
 ### Destroy the changes 
 
