@@ -701,7 +701,7 @@ mds_database = {
 
 1. Retrieve the private IP address of the OCI MDS instance endpoint:
 
-![](images/lesson2_free_tier_mds_with_public_access.png)
+![](images/lesson2_free_tier_mds_with_public_access1.png)
 
 2. Retrieve the public IP address of the Bastion Host:
 
