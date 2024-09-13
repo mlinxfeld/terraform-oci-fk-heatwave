@@ -803,6 +803,12 @@ mds_database = {
 }
 ```
 
+### Verify deployment
+
+1. Verify deployment of HeatWave cluster configuration for OCI MDS Instance
+
+![](images/lesson3_free_tier_mds_with_heatwave_cluster1.png)
+
 ### Destroy the changes 
 
 Run the following command for destroying all resources:
