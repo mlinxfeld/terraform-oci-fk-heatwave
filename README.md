@@ -69,32 +69,32 @@ mds_port | Specifies the port number used for connecting to the OCI MySQL Databa
 mds_port_x | Specifies the X Protocol port number used for connecting to the OCI MySQL Database Service (MDS) instance, enabling support for NoSQL and other protocols. By default, this is set to 33060.
 mds_vcn_cidr_block | Specifies the CIDR block for the Virtual Cloud Network (VCN) in which the OCI MySQL Database Service (MDS) instance will be deployed. This is required only if **use_existing_vcn=false**, as the module will create a new VCN. The default value is ```10.0.0.0/16```.
 mds_vcn_dns_label | Specifies the DNS label for the Virtual Cloud Network (VCN) in which the OCI MySQL Database Service (MDS) instance will be deployed. This label is used to create a DNS name for the VCN and must be unique within the Oracle Cloud Infrastructure tenancy. The default value is ```mdsvcn```. This is required only if **use_existing_vcn=false**.
-mds_vcn_display_name |
-mds_subnet_cidr_block |
-mds_subnet_display_name |
-mds_manual_backup_enabled |
-mds_backup_backup_type | FULL or INCREMENTAL
-mds_backup_description |
-mds_backup_display_name |
-mds_backup_retention_in_days |
-mds_cross_region_manual_backup_enabled |
-mds_cross_region_backup_region |
-mds_cross_region_manual_backup_ocid |
-mds_cross_region_backup_description |
-mds_cross_region_backup_display_name |
-mds_defined_source_enabled |
-mds_defined_source_type | BACKUP vs PITR vs IMPORTURL 
-mds_defined_source_backup_ocid |
-mds_defined_source_db_system_ocid |
-mds_defined_source_db_system_recovery_point |
-mds_defined_source_par_url |
-mds_custom_configuration_enabled |
-mds_configuration_description |
-mds_configuration_display_name |
-mds_config_binlog_expire_logs_seconds |
-mds_channel_enabled |
-mds_channel_display_name |
-mds_channel_source_mysql_database_hostname |
+mds_vcn_display_name | Specifies the display name for the Virtual Cloud Network (VCN) in which the OCI MySQL Database Service (MDS) instance will be deployed. This is the user-friendly name for easy identification of the VCN in the Oracle Cloud Infrastructure console. This is required only if **use_existing_vcn=false**.
+mds_subnet_cidr_block | Specifies the CIDR block for the subnet in which the OCI MySQL Database Service (MDS) instance will be deployed. This defines the IP address range for the subnet and is required only if **use_existing_vcn=false**. The default value is ```10.0.1.0/24```.
+mds_subnet_display_name | Specifies the display name for the subnet in which the OCI MySQL Database Service (MDS) instance will be deployed. This is the user-friendly name for easy identification of the subnet in the Oracle Cloud Infrastructure console. This is required only if **use_existing_vcn=false**.
+mds_manual_backup_enabled | A boolean flag indicating whether manual backups are enabled for the OCI MySQL Database Service (MDS) instance. If set to true, manual backups can be created and managed by the user. Note that this feature is not available for the ```MySQL.Free``` shape.
+mds_backup_backup_type | Specifies the type of backup to be performed for the OCI MySQL Database Service (MDS) instance. The available options are ```FULL``` for a complete backup of the database, or ```INCREMENTAL``` for backing up only the changes since the last backup.
+mds_backup_description | A brief description of the backup for the OCI MySQL Database Service (MDS) instance. This field is used to provide context or additional information about the backup, making it easier to identify and manage.
+mds_backup_display_name | The user-friendly name for the backup of the OCI MySQL Database Service (MDS) instance. This name helps with easy identification of the backup within the Oracle Cloud Infrastructure console.
+mds_backup_retention_in_days | Specifies the number of days that the backup of the OCI MySQL Database Service (MDS) instance will be retained before being automatically deleted. This value determines the lifespan of the backup.
+mds_cross_region_manual_backup_enabled | A boolean flag indicating whether manual backups should be copied to another region for cross-regional disaster recovery. This flag is used for independent module invocation in the region where the backup copy should be delivered (copied). If set to true, the module will manage the replication of manual backups to the target region.
+mds_cross_region_backup_region | Specifies the source region from which the manual backup of the OCI MySQL Database Service (MDS) instance will be copied for cross-regional disaster recovery. This defines the region where the original backup is created before being copied to a different target region.
+mds_cross_region_manual_backup_ocid | Specifies the OCID of the manual backup located in the source region that will be copied to another region for cross-regional disaster recovery. This OCID is necessary to identify the backup in the source region before replication.
+mds_cross_region_backup_description | A brief description of the cross-region backup for the OCI MySQL Database Service (MDS) instance. This field is used to provide context or additional information about the backup being replicated to another region, making it easier to identify and manage.
+mds_cross_region_backup_display_name | The user-friendly name for the cross-region backup of the OCI MySQL Database Service (MDS) instance. This name helps with easy identification and management of the backup across regions in the Oracle Cloud Infrastructure console.
+mds_defined_source_enabled | A boolean flag indicating whether a predefined source configuration is enabled for the OCI MySQL Database Service (MDS) instance. If set to true, the instance will be created based on a predefined source, such as an existing backup or custom configuration.
+mds_defined_source_type | Specifies the type of predefined source used for creating the OCI MySQL Database Service (MDS) instance. Available options include: (1) ```BACKUP```: The instance will be created from an existing backup, (2) ```PITR``` The instance will be restored from a Point-in-Time Recovery (PITR), (3) ```IMPORTURL```: The instance will be created by importing data from a specified URL.
+mds_defined_source_backup_ocid | Specifies the OCID of the backup used as the source for creating the OCI MySQL Database Service (MDS) instance when the **mds_defined_source_type** is set to ```BACKUP```. This OCID identifies the specific backup from which the new instance will be restored.
+mds_defined_source_db_system_ocid | Specifies the OCID of the database system used as the source for creating the OCI MySQL Database Service (MDS) instance. This is required when **mds_defined_source_type** is set to ```PITR``` (Point-in-Time Recovery) and is used to identify the specific database system from which the instance will be restored.
+mds_defined_source_db_system_recovery_point | Specifies the exact recovery point in time (in RFC3339 format) for restoring the OCI MySQL Database Service (MDS) instance when using Point-in-Time Recovery (PITR) as the source. This defines the specific moment to which the database will be restored.
+mds_defined_source_par_url | Specifies the Pre-Authenticated Request (PAR) URL used as the source for creating the OCI MySQL Database Service (MDS) instance when the **mds_defined_source_type** is set to ```IMPORTURL```. The PAR URL points to the location from which the database data will be imported.
+mds_custom_configuration_enabled | A boolean flag indicating whether a custom configuration is enabled for the OCI MySQL Database Service (MDS) instance. If set to true, the instance will be created using a custom configuration that overrides the default settings.
+mds_configuration_description | A brief description of the custom configuration applied to the OCI MySQL Database Service (MDS) instance. This description helps provide context for the configuration, making it easier to identify and manage.
+mds_configuration_display_name | The user-friendly name for the custom configuration applied to the OCI MySQL Database Service (MDS) instance. This name is used to easily identify and manage the configuration within the Oracle Cloud Infrastructure console.
+mds_config_binlog_expire_logs_seconds | A parameter that can be configured when **mds_custom_configuration_enabled=true**. It defines the time, in seconds, after which binary logs will automatically expire and be deleted in the OCI MySQL Database Service (MDS) instance. This helps manage log retention as part of the custom configuration.
+mds_channel_enabled | A boolean flag indicating whether replication channels are enabled for the OCI MySQL Database Service (MDS) instance. If set to true, a replication channel will be established, allowing data replication between MDS instances across regions or within the same region.
+mds_channel_display_name | The user-friendly name for the replication channel in the OCI MySQL Database Service (MDS) instance. This name is used to easily identify and manage the replication channel within the Oracle Cloud Infrastructure console.
+mds_channel_source_mysql_database_hostname | Specifies the hostname or IP address of the source MySQL database for the replication channel in the OCI MySQL Database Service (MDS) instance. This can be a hostname or an IP address that is reachable from the perspective of the target MDS instance, serving as the source for data replication.
 mds_channel_source_mysql_database_replication_user_name |
 mds_channel_source_mysql_database_source_type |
 mds_channel_source_mysql_database_ssl_mode |
