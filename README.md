@@ -42,33 +42,33 @@ module "fk-mds" {
 
 Argument | Description
 --- | ---
-mds_compartment_ocid | Compartment's OCID where MDS will be created.
-mds_admin_password |
-variable "mds_admin_username | 
-mds_availability_domain |
-heatwave_cluster_enabled |
-mds_shape | MySQL.Free, MySQL.2, MySQL.4, MySQL.8, MySQL.16, MySQL.32, MySQL.64, MySQL.128 , MySQL.256
-heatwave_shape | HeatWave.Free, HeatWave.32GB, HeatWave.512GB
-heatwave_cluster_size |
-use_existing_vcn |
-use_public_subnet |
-subnet_id |
-mds_backup_policy_is_enabled |
-mds_backup_policy_retention_in_days |
-mds_backup_policy_window_start_time |
-mds_data_storage_size_in_gb | Must be an integer between 50 and 131,072.
-mds_defined_tags |
-mds_description |
-mds_display_name |
-mds_fault_domain |
-mds_freeform_tags |
-mds_hostname_label |
-mds_is_highly_available |
-mds_maintenance_window_start_time |
-mds_port | By default 3306
-mds_port_x | By default 33060
-mds_vcn_cidr_block |
-mds_vcn_dns_label |
+mds_compartment_ocid | Compartment's OCID where OCI MDS instance will be created.
+mds_admin_password |The password for the ADMIN user of the OCI MySQL Database Service (MDS) instance.
+mds_admin_username | The username for the ADMIN user of the OCI MySQL Database Service (MDS) instance. By default, this is set to ```mysql```.
+mds_availability_domain | The availability domain where the OCI MySQL Database Service (MDS) instance will be deployed.
+heatwave_cluster_enabled | A boolean flag indicating whether the HeatWave Cluster is enabled for the OCI MySQL Database Service (MDS) instance, allowing for in-memory query acceleration.
+mds_shape | he compute shape of the OCI MySQL Database Service (MDS) instance, determining the resources allocated. Available options include: ```MySQL.Free```, ```MySQL.2```, ```MySQL.4```, ```MySQL.8```, ```MySQL.16```, ```MySQL.32```, ```MySQL.64```, ```MySQL.128```, and ```MySQL.256```.
+heatwave_shape | The shape of the HeatWave Cluster for the OCI MySQL Database Service (MDS) instance, specifying the memory allocated for in-memory query acceleration. Available options include: ```HeatWave.Free```, ```HeatWave.32GB```, and ```HeatWave.512GB```.
+heatwave_cluster_size | The number of nodes in the **HeatWave Cluster** for the OCI MySQL Database Service (MDS) instance. This value determines the scale and performance of the in-memory query acceleration. By default, the value is set to ```1```.
+use_existing_vcn | A boolean flag indicating whether to use an existing Virtual Cloud Network (VCN) for the OCI MySQL Database Service (MDS) instance. If set to true, the existing VCN should be specified and inserted into the module along with the **subnet_id** attribute for the deployment process; otherwise, a new VCN and subnet will be created.
+use_public_subnet | A boolean flag used when **use_existing_vcn=false**, indicating whether the module should create a public subnet in addition to the private subnet. The public subnet can be used to deploy a bastion host, which enables access to the private subnet where the OCI MySQL Database Service (MDS) instance will be deployed.
+subnet_id | The identifier of the subnet where the OCI MySQL Database Service (MDS) instance will be deployed. If use_existing_vcn=true, this value must be provided to specify the subnet within the existing Virtual Cloud Network (VCN).
+mds_backup_policy_is_enabled | A boolean flag indicating whether automated backups are enabled for the OCI MySQL Database Service (MDS) instance. If set to true, backups will be created according to the defined backup policy.
+mds_backup_policy_retention_in_days | Specifies the number of days that automated backups for the OCI MySQL Database Service (MDS) instance will be retained. By default, this value is set to 31 days, meaning backups will be kept for 31 days before being automatically deleted.
+mds_backup_policy_window_start_time | Specifies the start time for the automated backup window of the OCI MySQL Database Service (MDS) instance. By default, this is set to ```MONDAY 23:00``` (UTC), indicating that backups will start every Monday at 11:00 PM UTC.
+mds_data_storage_size_in_gb | Specifies the size of the data storage for the OCI MySQL Database Service (MDS) instance, measured in gigabytes. The value must be an integer between 50 and 131,072 GB.
+mds_defined_tags | A map of predefined tags assigned to the OCI MySQL Database Service (MDS) instance. These tags are key-value pairs that can be used to organize and manage resources according to your organization's tagging policies.
+mds_description | A brief description of the OCI MySQL Database Service (MDS) instance. This field is used to provide context or additional information about the instance for easier identification and management.
+mds_display_name | The user-friendly name for the OCI MySQL Database Service (MDS) instance. This name is used for easy identification of the instance within the Oracle Cloud Infrastructure console and does not have to be unique.
+mds_fault_domain | Specifies the fault domain within the availability domain where the OCI MySQL Database Service (MDS) instance will be deployed. Fault domains provide resilience by ensuring that instances are placed in separate physical hardware locations within the same availability domain to mitigate failure risks.
+mds_freeform_tags | A collection of simple key-value pairs that can be assigned to the OCI MySQL Database Service (MDS) instance. These tags are user-defined and can be used for flexible resource organization, tracking, and categorization.
+mds_hostname_label | The hostname label for the OCI MySQL Database Service (MDS) instance, used to create a unique DNS name for the instance within the VCN. The hostname label must be unique within the VCN and will form part of the FQDN (Fully Qualified Domain Name).
+mds_is_highly_available | A boolean flag indicating whether the OCI MySQL Database Service (MDS) instance is configured for high availability. If set to true, the instance will be deployed with redundancy across multiple availability domains or fault domains to ensure resilience and minimize downtime.
+mds_maintenance_window_start_time | Specifies the start time for the maintenance window of the OCI MySQL Database Service (MDS) instance. This is the time when scheduled maintenance tasks, such as updates and patches, will begin, typically provided in HH format (UTC).
+mds_port | Specifies the port number used for connecting to the OCI MySQL Database Service (MDS) instance. By default, this is set to 3306, which is the standard MySQL port.
+mds_port_x | Specifies the X Protocol port number used for connecting to the OCI MySQL Database Service (MDS) instance, enabling support for NoSQL and other protocols. By default, this is set to 33060.
+mds_vcn_cidr_block | Specifies the CIDR block for the Virtual Cloud Network (VCN) in which the OCI MySQL Database Service (MDS) instance will be deployed. This is required only if **use_existing_vcn=false**, as the module will create a new VCN. The default value is ```10.0.0.0/16```.
+mds_vcn_dns_label | Specifies the DNS label for the Virtual Cloud Network (VCN) in which the OCI MySQL Database Service (MDS) instance will be deployed. This label is used to create a DNS name for the VCN and must be unique within the Oracle Cloud Infrastructure tenancy. The default value is ```mdsvcn```. This is required only if **use_existing_vcn=false**.
 mds_vcn_display_name |
 mds_subnet_cidr_block |
 mds_subnet_display_name |
