@@ -440,6 +440,12 @@ mds_database = {
 }
 ```
 
+### Verify deployment
+
+1. Verify OCI MDS instance deployment:
+
+![](images/lesson1_free_tier_mds1.png)
+
 ### Destroy the changes 
 
 Run the following command for destroying all resources:
