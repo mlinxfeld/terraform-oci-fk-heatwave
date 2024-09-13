@@ -5,7 +5,7 @@
 
 In this lesson, we'll delve into the creation of a **MySQL Database Service** in Oracle Cloud Infrastructure with **Replicas** using a **Terraform module**, focusing on setting up read replicas to offload read-heavy workloads, improve performance, and enhance data availability and redundancy across different instances.
 
-![](images/lesson8_mds_with_replicas2.png)
+![](images/lesson8_mds_with_replicas.png)
 
 ## Deploy Using Oracle Resource Manager
 
@@ -489,7 +489,7 @@ mds_database = {
 
 1. Verify MDS replica:
 
-![](images/lesson8_mds_with_replicas.png)
+![](images/lesson8_mds_with_replicas1.png)
 
 2. Check the details of the MDS replica:
 
