@@ -95,29 +95,29 @@ mds_config_binlog_expire_logs_seconds | A parameter that can be configured when 
 mds_channel_enabled | A boolean flag indicating whether replication channels are enabled for the OCI MySQL Database Service (MDS) instance. If set to true, a replication channel will be established, allowing data replication between MDS instances across regions or within the same region.
 mds_channel_display_name | The user-friendly name for the replication channel in the OCI MySQL Database Service (MDS) instance. This name is used to easily identify and manage the replication channel within the Oracle Cloud Infrastructure console.
 mds_channel_source_mysql_database_hostname | Specifies the hostname or IP address of the source MySQL database for the replication channel in the OCI MySQL Database Service (MDS) instance. This can be a hostname or an IP address that is reachable from the perspective of the target MDS instance, serving as the source for data replication.
-mds_channel_source_mysql_database_replication_user_name |
-mds_channel_source_mysql_database_source_type |
-mds_channel_source_mysql_database_ssl_mode |
-mds_channel_source_mysql_database_replication_user_password |
-mds_channel_target_target_type |
-mds_channel_target_db_system_id |
-mds_channel_target_channel_name" |
-mds_channel_target_delay_in_seconds |
-mds_channel_target_tables_without_primary_key_handling
-mds_channel_repl_user_setup_enabled |
-mds_channel_bastion_user |
-mds_channel_bastion_hostname |
-mds_channel_bastion_private_key |
-mds_channel_source_ip_address_range |
-mds_replica_enabled |
-mds_replica_source_db_system_id |
-mds_replica_description |
-mds_replica_display_name |
-mds_replica_is_delete_protected |
-mds_replica_overrides |
-mds_replica_overrides_configuration_id |
-mds_replica_overrides_mysql_version
-mds_replica_overrides_shape | MySQL.2, MySQL.4, MySQL.8, MySQL.16, MySQL.32, MySQL.64, MySQL.128 , MySQL.256
+mds_channel_source_mysql_database_replication_user_name | Specifies the username for the replication user on the source MySQL database. This user, created by the module in the source database, is used to authenticate and authorize replication activities through the replication channel in the OCI MySQL Database Service (MDS) instance.
+mds_channel_source_mysql_database_source_type | Specifies the type of source MySQL database for the replication channel in the OCI MySQL Database Service (MDS) instance. Possible values include: ```PRIMARY```: The source database is a primary instance, ```REPLICA```: The source database is a replica. This setting determines the role of the source database in the replication setup.
+mds_channel_source_mysql_database_ssl_mode | Specifies the SSL mode for connecting to the source MySQL database in the replication channel. This setting controls whether and how SSL/TLS encryption is used for secure communication between the OCI MySQL Database Service (MDS) instance and the source database. 
+mds_channel_source_mysql_database_replication_user_password | Specifies the password for the replication user on the source MySQL database. This user, created by the module in the source database, is used to authenticate and authorize replication activities through the replication channel in the OCI MySQL Database Service (MDS) instance.
+mds_channel_target_target_type | Specifies the type of target MySQL database for the replication channel in the OCI MySQL Database Service (MDS) instance.
+mds_channel_target_db_system_id | Specifies the OCID of the target database system for the replication channel in the OCI MySQL Database Service (MDS) instance. This ID identifies the specific database system where data will be replicated.
+mds_channel_target_channel_name | Specifies the name for the replication channel on the target MySQL database in the OCI MySQL Database Service (MDS) instance. This name is used to identify and manage the replication channel within the target database system.
+mds_channel_target_delay_in_seconds | Specifies the delay, in seconds, applied to the replication channel on the target MySQL database in the OCI MySQL Database Service (MDS) instance. This delay introduces a lag between the source and target databases, which can be useful for disaster recovery or to manage replication lag.
+mds_channel_target_tables_without_primary_key_handling | Specifies the handling strategy for tables without a primary key on the target MySQL database in the OCI MySQL Database Service (MDS) instance. This setting determines how such tables are managed during replication, which may involve options like ignoring these tables, applying default settings, or handling them in a specific manner to ensure data consistency.
+mds_channel_repl_user_setup_enabled | A boolean flag indicating whether the setup of the replication user on the source MySQL database is enabled. If set to true, the module will automatically create and configure the replication user needed for the replication channel.
+mds_channel_bastion_user | Specifies the username for accessing the bastion host used to connect to the source MySQL database in the replication channel setup. This user is required to authenticate and establish a secure connection from the bastion host to the source database.
+mds_channel_bastion_hostname | Specifies the hostname or IP address of the bastion host used for accessing the source MySQL database in the replication channel setup. This is the address through which secure connections are established between the bastion host and the source database.
+mds_channel_bastion_private_key | Specifies the private key used for authenticating and establishing a secure SSH connection to the bastion host. This key is required for accessing the source MySQL database through the bastion host in the replication channel setup.
+mds_channel_source_ip_address_range | Specifies the IP address range from which the source MySQL database can be accessed for the replication channel. This range defines the allowed IP addresses or subnets that can establish connections to the source database for replication purposes.
+mds_replica_enabled | A boolean flag indicating whether a read replica should be created for the OCI MySQL Database Service (MDS) instance. If set to true, a read replica will be configured, allowing for read-heavy workloads to be offloaded from the primary database, enhancing performance and scalability.
+mds_replica_source_db_system_id | Specifies the OCID of the source database system from which the read replica will be created. This ID identifies the primary database system whose data will be replicated to the new read replica instance.
+mds_replica_description | Provides a brief description of the read replica for the OCI MySQL Database Service (MDS) instance. This description helps provide context or additional information about the replica, making it easier to identify and manage.
+mds_replica_display_name | The user-friendly name for the read replica of the OCI MySQL Database Service (MDS) instance. This name is used to easily identify and manage the replica within the Oracle Cloud Infrastructure console.
+mds_replica_is_delete_protected | A boolean flag indicating whether the read replica of the OCI MySQL Database Service (MDS) instance is protected from accidental deletion. If set to true, the replica will have delete protection enabled, preventing it from being removed without explicitly disabling this protection.
+mds_replica_overrides | Specifies any custom configuration settings or overrides applied to the read replica of the OCI MySQL Database Service (MDS) instance. This can include parameters that adjust the behavior or performance of the replica, such as storage size, instance shape, or replication settings, differing from the default or primary instance settings.
+mds_replica_overrides_configuration_id | Specifies the OCID of the custom configuration applied to the read replica of the OCI MySQL Database Service (MDS) instance. This configuration ID references a set of overrides that adjust the settings or parameters for the replica, allowing for tailored performance or behavior.
+mds_replica_overrides_mysql_version Specifies the MySQL version to be used for the read replica of the OCI MySQL Database Service (MDS) instance. This setting allows you to override the default MySQL version of the primary database, enabling the replica to run a different version if required.
+mds_replica_overrides_shape | Specifies the shape (resource allocation) for the read replica of the OCI MySQL Database Service (MDS) instance. This determines the compute resources (CPU and memory) allocated to the replica. Possible values include: ```MySQL.Free```, ```MySQL.2```, ```MySQL.4```, ```MySQL.8```, ```MySQL.16```, ```MySQL.32```, ```MySQL.64```, ```MySQL.128```, and ```MySQL.256```.
 
 ## Contributing
 This project is open source. Please submit your contributions by forking this repository and submitting a pull request! [FoggyKitchen.com](https://foggykitchen.com/) appreciates any contributions that are made by the open source community.
