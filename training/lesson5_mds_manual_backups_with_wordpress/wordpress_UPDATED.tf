@@ -10,7 +10,7 @@ module "oci-fk-wordpress" {
   flex_shape_ocpus          = var.wordpress_compute_flex_shape_ocpus
   flex_shape_memory         = var.wordpress_compute_flex_shape_memory
   ssh_authorized_keys       = tls_private_key.public_private_key_pair.public_key_openssh
-  mds_ip                    = module.oci-fk-mds.mds_database.mds_ip_address
+  mds_ip                    = module.oci-fk-mds.mds_database.mds_ip_address # No more FREE MDS...
   wp_subnet_id              = oci_core_subnet.FoggyKitchenPublicSubnet.id
   admin_username            = var.mds_admin_username
   admin_password            = var.mds_admin_password
